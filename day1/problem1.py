@@ -3,21 +3,21 @@ class CalibrationProcessor:
         self.file_name = file_name
 
     def find_calibration_value(self, line):
-        first_num = None
-        last_num = None
+        start = None
+        final = None
 
         for char in line:
             if char.isdigit():
-                first_num = int(char)
+                start = int(char)
                 break
 
         for char in reversed(line):
             if char.isdigit():
-                last_num = int(char)
+                final = int(char)
                 break
 
-        if first_num is not None and last_num is not None:
-            return first_num * 10 + last_num
+        if start is not None and final is not None:
+            return start * 10 + final
         else:
             return 0
 
